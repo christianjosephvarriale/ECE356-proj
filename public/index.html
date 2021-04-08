@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta content="initial-scale=1.0" name="viewport">
+		<title>
+			CS 349 A3
+		</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" type="text/javascript"></script>
+		<script src="app.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="mobile.css">
+	</head>
+	<body onload="startApp()">
+		<!-- Update this file by adding your content inside the body. -->
+		<h1>
+			Crime Analysis Website For Los Angeles
+		</h1>
+		<ul>
+			<li><a href="#" id="examPage">Adding Crime Data</a></li>
+			
+		</ul>
+		<div id="AddingData">
+			<form action="/action_page.php">
+				<label for="Date">Date:</label><br>
+				<input type="text" id="Date" name="Date" value=""><br>
+				<label for="Time">Time:</label><br>
+				<input type="text" id="Time" name="Time" value=""><br>
+				<label for="Vsex">Victim Sex:</label><br>
+				<input type="text" id="Vsex" name="Vsex" value=""><br>
+				<label for="Vage">Victim Age:</label><br>
+				<input type="text" id="Vage" name="Vage" value=""><br>
+				<label for="Area">Area Location:</label><br>
+				<input type="text" id="Area" name="Area" value=""><br>
+				<label for="Weapon">Weapon Used:</label><br>
+				<input type="text" id="Weapon" name="Weapon" value=""><br>
+				<br>
+				<button type="button"> Add </button><br>
+				
+			</form> 
+		</div>
+
+		<ul>
+			<li><a href="#" id="examPage">Searching Crime Data</a></li>
+			
+		</ul>
+
+		<div id="ChoiceOfTerm">
+			<select id="SelectingTerm">
+				<option selected="selected" value="1175"> Spring(January-April)</option>
+				<option value="1179">Fall(May-August)</option>
+				<option value="1181">Winter(September-December)</option>
+
+			</select>
+		</div>
+
+		<div id="ChoiceOfTerm">
+			<select id="SelectingTerm">
+				<option value="2020">2020</option>
+				<option selected="selected" value="1175">2019</option>
+				<option value="2018">2018</option>
+				<option value="2017">2017</option>
+
+			</select>
+		</div>
+
+
+		<div id="ChoiceOfFilter">
+            <select id="SelectingFilter">
+		        <option selected="selected" value="CourseName +">Top 10 Safest Cities</option>
+		        <option value="CourseName -">Top 10 Dangerous Cities</option>
+		        <option value="Date +">Date +</option>
+		        <option value="Date -">Date -</option>
+		        <option value="Location +">Location +</option>
+		        <option value="Location -">Location -</option>
+            </select>
+        </div>
+        <div id="SearchBar">
+            <input id="searchbar" type="search" class="keywords search-query" placeholder="eg: New York City" value=""><br>
+            <i class="icon-search"></i>
+            <br>
+				<button type="button"> Search </button><br>
+        </div>
+        
+
+		<div class = "row-label">
+            <div class= "courseView">City</div>
+            <div class= "dateView">Date</div>
+            <div class= "startTimeView">Number of Crimes</div>
+            <div class= "locationView">Location</div>
+        </div>
+	</body>
+</html>

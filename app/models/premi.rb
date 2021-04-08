@@ -1,0 +1,2 @@
+class Premi < ApplicationRecord
+end

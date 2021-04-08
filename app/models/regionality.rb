@@ -1,0 +1,2 @@
+class Regionality < ApplicationRecord
+end
