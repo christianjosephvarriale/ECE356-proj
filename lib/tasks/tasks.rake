@@ -93,6 +93,8 @@ task import_data: :environment do
             crime_id: row[:dr_no]
         }
 
+        break if i == 1000000
+
     end
 
     ## entities
