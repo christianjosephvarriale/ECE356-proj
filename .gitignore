@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
+*.csv
+*.csv#
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/

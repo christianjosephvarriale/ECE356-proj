@@ -1,0 +1,2 @@
+class PremisCrime < ApplicationRecord
+end

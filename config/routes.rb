@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   ## make a post request and query
   post '/query', to: 'application#query'
+  post '/create', to: 'application#create'
 
 end
