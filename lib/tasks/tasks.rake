@@ -109,7 +109,7 @@ task import_data: :environment do
 
         break if j == 1000000
 
-        if j % 100 == 0
+        if j % 1000 == 0
 
             File.write("import_log.txt", j, mode: "a")
 
