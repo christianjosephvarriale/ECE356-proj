@@ -15,6 +15,7 @@
 
 *.csv
 *.csv#
+import_log.txt
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*

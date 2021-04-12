@@ -10,6 +10,7 @@ task import_data: :environment do
     regionalities = []
     weapons = []
     offences = []
+    victims = []
 
     offence_crimes = []
     premis_crimes = []
@@ -18,14 +19,26 @@ task import_data: :environment do
 
     i = 0
 
+    if File.exists?("import_log.txt")
+        file = File.open("import_log.txt")
+        i = file.read.strip.to_i
+    end
+
     url = "https://moralyzer-data-stream-1.s3.us-east-2.amazonaws.com/Crime_Data_from_2010_to_2019.csv"
     url_data = open(url)  
 
+
+
     symbolize_converter = lambda { |header| header.parameterize.underscore.to_sym }
-    CSV.foreach(url_data, headers: true, header_converters: symbolize_converter) do |row|
+    CSV.foreach(url_data, headers: true, header_converters: symbolize_converter).with_index do |row, j|
         
-        puts "record no: #{i}"
-        i = i + 1
+        ## move to our previous spot
+        if j < i 
+            next
+        end
+
+        puts "record no: #{j}"
+        j = j + 1
 
         ## entities
         crimes << {     
@@ -44,11 +57,12 @@ task import_data: :environment do
 
         end
 
-        victim = Victim.create(
+        victims << {
+            id: j,
             sex: row[:vict_sex],
             descent: row[:vict_descent],
             age: row[:vict_age]
-        )
+        }
 
         regionalities << {
             location: row[:location],
@@ -89,15 +103,35 @@ task import_data: :environment do
         end
 
         victim_crimes << {
-            victim_id: victim.id,
+            victim_id: j,
             crime_id: row[:dr_no]
         }
 
-        break if i == 1000000
+        break if j == 1000000
+
+        if j % 100 == 0
+
+            File.write("import_log.txt", j, mode: "a")
+
+            ## entities
+            Crime.import(crimes, :on_duplicate_key_ignore => true)
+            Victim.import(victims, :on_duplicate_key_ignore => true)
+            Weapon.import(weapons, :on_duplicate_key_ignore => true)
+            Regionality.import(regionalities, :on_duplicate_key_ignore => true)
+            Premi.import(premises, :on_duplicate_key_ignore => true)
+            Offence.import(offences, :on_duplicate_key_ignore => true)
+
+            ## the junction objects
+            OffenceCrime.import(offence_crimes, :on_duplicate_key_ignore => true)
+            PremisCrime.import(premis_crimes, :on_duplicate_key_ignore => true)
+            WeaponCrime.import(weapon_crimes, :on_duplicate_key_ignore => true)
+            VictimCrime.import(victim_crimes, :on_duplicate_key_ignore => true)
+        end
 
     end
 
     ## entities
+    Victim.import(victims, :on_duplicate_key_ignore => true)
     Crime.import(crimes, :on_duplicate_key_ignore => true)
     Weapon.import(weapons, :on_duplicate_key_ignore => true)
     Regionality.import(regionalities, :on_duplicate_key_ignore => true)
