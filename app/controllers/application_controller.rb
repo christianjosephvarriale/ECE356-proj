@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
 
         # {
         #     "date_rptd" : "02/20/2010 12:00:00 AM",
-        #     "time_occ" : "1350",
+        #     "time_occured" : "1350",
         #     "date_occured" : "02/20/2010 12:00:00 AM",
         #     "offence_desc" : "VIOLATION OF COURT ORDER",
         #     "area": "Newton",
@@ -23,7 +23,10 @@ class ApplicationController < ActionController::API
         #     "weapon_desc": "HAND GUN",
         #     "lat": "33.9599",
         #     "long":"33.9599",
-        #     "location":"300 E GAGE AV"
+        #     "location":"300 E GAGE AV",
+        #     "sex": "M",
+        #     "descent" : "B",
+        #     "age" : "12"
         # }
 
         crime = Crime.create(
