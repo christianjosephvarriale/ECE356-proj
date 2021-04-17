@@ -596,9 +596,9 @@ async function SearchFunction() {
 				// DangerousAreaLateNightDataList[1] = {area: "Newton"};
 				// DangerousAreaLateNightDataList[2] = {area: "Hollenbeck"};
 
-				// DangerousAreaLateNightDataCountList[0] = {count: 21291};
-				// DangerousAreaLateNightDataCountList[1] = {count: 21291};
-				// DangerousAreaLateNightDataCountList[2] = {count: 21291};
+		DangerousAreaLateNightDataCountList[0] = {count: 5125};
+		DangerousAreaLateNightDataCountList[1] = {count: 15};
+		DangerousAreaLateNightDataCountList[2] = {count: 4};
 
 
                 var datacombined = [];
@@ -636,9 +636,9 @@ async function SearchFunction() {
 				// DangerousAreaMorningDataList[1] = {area: "Newton"};
 				// DangerousAreaMorningDataList[2] = {area: "Hollenbeck"};
 
-				// DangerousAreaMorningDataCountList[0] = {count: 21291};
-				// DangerousAreaMorningDataCountList[1] = {count: 21291};
-				// DangerousAreaMorningDataCountList[2] = {count: 21291};
+		DangerousAreaLateNightDataCountList[0] = {count: 5235};
+		DangerousAreaLateNightDataCountList[1] = {count: 17};
+		DangerousAreaLateNightDataCountList[2] = {count: 5};
 
                 var datacombined = [];
                 var g = 0;
@@ -675,9 +675,9 @@ async function SearchFunction() {
 				// DangerousAreaAfternoonDataList[1] = {area: "Newton"};
 				// DangerousAreaAfternoonDataList[2] = {area: "Hollenbeck"};
 
-				// DangerousAreaAfternoonDataCountList[0] = {count: 21291};
-				// DangerousAreaAfternoonDataCountList[1] = {count: 21291};
-				// DangerousAreaAfternoonDataCountList[2] = {count: 21291};
+		DangerousAreaLateNightDataCountList[0] = {count: 5485};
+		DangerousAreaLateNightDataCountList[1] = {count: 12};
+		DangerousAreaLateNightDataCountList[2] = {count: 2};
 
                 var datacombined = [];
                 var g = 0;
@@ -713,11 +713,10 @@ async function SearchFunction() {
     			//DangerousAreaNightDataList[0] = {area: "Central"};
 				// DangerousAreaNightDataList[1] = {area: "Newton"};
 				// DangerousAreaNightDataList[2] = {area: "Hollenbeck"};
-
-				// DangerousAreaNightDataCountList[0] = {count: 21291};
-				// DangerousAreaNightDataCountList[1] = {count: 21291};
-				// DangerousAreaNightDataCountList[2] = {count: 21291};
-
+		DangerousAreaLateNightDataCountList[0] = {count: 5446};
+		DangerousAreaLateNightDataCountList[1] = {count: 20};
+		DangerousAreaLateNightDataCountList[2] = {count: 9};
+		    
                 var datacombined = [];
                 var g = 0;
                 for (var a of DangerousAreaNightDataList) {
