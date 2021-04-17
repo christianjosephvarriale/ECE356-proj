@@ -1,49 +1,17 @@
-Your UW: Search for Course, Study for Exam
+Your UW: Criminal Analysis for Los Angeles
 
 Usage Manual
 --------------------------------------------
 
-1. Main Page:
+1. Adding Criminal Attributes
 
 Two Function Bars	(By default, it displays exam schedule)
 	Exam Schedule	(click to search for exam schedule)
 	Courses			(click to search for courses)
 
-2. Children Pages:
+2. Search Criminal Queries
 
-	Exam Schedule	(click to search for exam schedule)
-
-		Filters
-			Filter by Term 
-			(2017 Winter, 2017 Spring, 2017 Fall (out in future), 2018 Winter (out in future))
-
-			Filter by Alphabetical order
-				Course Name Accending, Course Name Deccending
-				Date Accending, Date Deccending
-				Location Name Accending, Course Name Deccending
-
-		Search Bar
-			Users can search by three ways with key up function
-			course, course number, course writing in full 
-			Eg:	cs,	350,			cs350
-
-
-
-	Courses			(click to search for courses)
-
-		Filters
-			Filter by Term 
-			(2017 Winter, 2017 Spring, 2017 Fall (out in future), 2018 Winter (out in future))
-
-		Search Bar
-			Users can search by three ways with key up function
-			course wording, course number, full course title 
-			Eg:	cs,			349,			User Interface
-
-
-
-
-
-
-
+	6 Basic Search Criterias - 3 Safest Areas, 3 Most Dangerous Areas, 10 Most/Least Used Weapons, Age/Gender Distributions
+	4 Advanced Search - 3 Most Dangerous Area with respective to time (morning, afternoon, night and late night)
+	Search Bar - searching  existed crime_id and output its time and date
 
