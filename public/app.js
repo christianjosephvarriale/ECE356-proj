@@ -29,9 +29,9 @@ var area_asc = "SELECT COUNT(area), area FROM regionalities Group By area Order 
 var weapons_id_asc  = "WITH weapon_used_asc AS (SELECT weapon_id AS ascweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) ASC LIMIT 10) ";
 var weapons_id_desc  = "WITH weapon_used_desc AS (SELECT weapon_id AS descweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) DESC LIMIT 10) ";
 
-var weapons_description_asc  = "SELECT description from weapons RIGHT JOIN weapon_used_asc ON weapon_used_asc.ascweaponID = weapons.id;";
+var weapons_description_asc  = "WITH weapon_used_asc AS (SELECT weapon_id AS ascweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) ASC LIMIT 10) SELECT description from weapons RIGHT JOIN weapon_used_asc ON weapon_used_asc.ascweaponID = weapons.id;";
 var weapons_count_asc  = "SELECT count(weapon_id) from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) ASC LIMIT 10;";
-var weapons_description_desc  = "SELECT description from weapons RIGHT JOIN weapon_used_desc ON weapon_used_desc.descweaponID = weapons.id;";
+var weapons_description_desc  = "WITH weapon_used_desc AS (SELECT weapon_id AS descweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) DESC LIMIT 10) SELECT description from weapons RIGHT JOIN weapon_used_desc ON weapon_used_desc.descweaponID = weapons.id;";
 var weapons_count_desc  = "SELECT count(weapon_id) from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) DESC LIMIT 10;";
 
 
