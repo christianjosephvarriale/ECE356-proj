@@ -609,6 +609,7 @@ async function SearchFunction() {
                 	g++;
                 }
                 var j = 0;
+		console.log("late night count ", DangerousAreaLateNightDataCountList);
                 for (var b of DangerousAreaLateNightDataCountList) {
                 	datacombined[j].count = b.count;
                 	j++;
