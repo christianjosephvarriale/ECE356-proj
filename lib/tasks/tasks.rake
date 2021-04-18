@@ -37,6 +37,17 @@ task import_data: :environment do
             next
         end
 
+        ## check to see if any null values exist in the dataset
+        if  row[:date_rptd].nil? || row[:date_occ].nil? || row[:time_occ].nil? || row[:vict_sex].nil? || \
+            row[:vict_descent].nil? || row[:vict_age].nil? || row[:location].nil? || row[:lat].nil? || \
+            row[:long].nil? || row[:area_name].nil? || row[:premis_desc].nil? || row[:premis_cd].nil? || \
+            row[:dr_no]
+
+            next
+
+        end
+
+
         puts "record no: #{j}"
         j = j + 1
 

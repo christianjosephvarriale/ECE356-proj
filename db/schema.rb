@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_173251) do
+ActiveRecord::Schema.define(version: 2021_04_18_020620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "crimes", force: :cascade do |t|
-    t.string "date_rptd"
-    t.string "date_occured"
-    t.string "time_occured"
+    t.string "date_rptd", null: false
+    t.string "date_occured", null: false
+    t.string "time_occured", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,12 +36,14 @@ ActiveRecord::Schema.define(version: 2021_04_11_173251) do
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["description"], name: "index_offences_on_description"
   end
 
   create_table "premis", force: :cascade do |t|
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["description"], name: "index_premis_on_description"
   end
 
   create_table "premis_crimes", primary_key: ["premis_id", "crime_id"], force: :cascade do |t|
@@ -55,10 +57,10 @@ ActiveRecord::Schema.define(version: 2021_04_11_173251) do
 
   create_table "regionalities", force: :cascade do |t|
     t.bigint "crime_id", null: false
-    t.string "location"
-    t.string "lat"
-    t.string "long"
-    t.string "area"
+    t.string "location", null: false
+    t.string "lat", null: false
+    t.string "long", null: false
+    t.string "area", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["crime_id"], name: "index_regionalities_on_crime_id"
@@ -74,9 +76,9 @@ ActiveRecord::Schema.define(version: 2021_04_11_173251) do
   end
 
   create_table "victims", force: :cascade do |t|
-    t.string "sex"
-    t.string "descent"
-    t.integer "age"
+    t.string "sex", null: false
+    t.string "descent", null: false
+    t.string "age", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_173251) do
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["description"], name: "index_weapons_on_description"
   end
 
   add_foreign_key "offence_crimes", "crimes"
