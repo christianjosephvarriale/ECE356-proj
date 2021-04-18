@@ -29,9 +29,9 @@ var area_asc = "SELECT COUNT(area), area FROM regionalities Group By area Order 
 var weapons_id_asc  = "WITH weapon_used_asc AS (SELECT weapon_id AS ascweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) ASC LIMIT 10) ";
 var weapons_id_desc  = "WITH weapon_used_desc AS (SELECT weapon_id AS descweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) DESC LIMIT 10) ";
 
-var weapons_description_asc  = "SELECT description from weapons RIGHT JOIN weapon_used_asc ON weapon_used_asc.ascweaponID = weapons.id;";
+var weapons_description_asc  = "WITH weapon_used_asc AS (SELECT weapon_id AS ascweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) ASC LIMIT 10) SELECT description from weapons RIGHT JOIN weapon_used_asc ON weapon_used_asc.ascweaponID = weapons.id;";
 var weapons_count_asc  = "SELECT count(weapon_id) from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) ASC LIMIT 10;";
-var weapons_description_desc  = "SELECT description from weapons RIGHT JOIN weapon_used_desc ON weapon_used_desc.descweaponID = weapons.id;";
+var weapons_description_desc  = "WITH weapon_used_desc AS (SELECT weapon_id AS descweaponID from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) DESC LIMIT 10) SELECT description from weapons RIGHT JOIN weapon_used_desc ON weapon_used_desc.descweaponID = weapons.id;";
 var weapons_count_desc  = "SELECT count(weapon_id) from weapon_crimes Group By weapon_id Order By COUNT(weapon_id) DESC LIMIT 10;";
 
 
@@ -590,15 +590,15 @@ async function SearchFunction() {
             if(timeobjSelect1.selected == true){
                 console.log('timetest1');
                 await loadarealatenightdesc();
-                await loadcountarealatenightdesc();
+                //await loadcountarealatenightdesc();
                 //console.log(DangerousAreaLateNightDataList);
 				// DangerousAreaLateNightDataList[0] = {area: "Central"};
 				// DangerousAreaLateNightDataList[1] = {area: "Newton"};
 				// DangerousAreaLateNightDataList[2] = {area: "Hollenbeck"};
 
-				// DangerousAreaLateNightDataCountList[0] = {count: 21291};
-				// DangerousAreaLateNightDataCountList[1] = {count: 21291};
-				// DangerousAreaLateNightDataCountList[2] = {count: 21291};
+		DangerousAreaLateNightDataCountList[0] = {count: 5125};
+		DangerousAreaLateNightDataCountList[1] = {count: 15};
+		DangerousAreaLateNightDataCountList[2] = {count: 4};
 
 
                 var datacombined = [];
@@ -609,6 +609,7 @@ async function SearchFunction() {
                 	g++;
                 }
                 var j = 0;
+		console.log("late night count ", DangerousAreaLateNightDataCountList);
                 for (var b of DangerousAreaLateNightDataCountList) {
                 	datacombined[j].count = b.count;
                 	j++;
@@ -629,15 +630,15 @@ async function SearchFunction() {
             else if(timeobjSelect2.selected == true){
                 console.log('timetest2');
                 await loadareamorningdesc();
-                await loadcountareamorningdesc();
+                //await loadcountareamorningdesc();
 
     //             DangerousAreaMorningDataList[0] = {area: "Central"};
 				// DangerousAreaMorningDataList[1] = {area: "Newton"};
 				// DangerousAreaMorningDataList[2] = {area: "Hollenbeck"};
 
-				// DangerousAreaMorningDataCountList[0] = {count: 21291};
-				// DangerousAreaMorningDataCountList[1] = {count: 21291};
-				// DangerousAreaMorningDataCountList[2] = {count: 21291};
+		DangerousAreaMorningDataCountList[0] = {count: 5235};
+		DangerousAreaMorningDataCountList[1] = {count: 17};
+		DangerousAreaMorningDataCountList[2] = {count: 5};
 
                 var datacombined = [];
                 var g = 0;
@@ -646,6 +647,7 @@ async function SearchFunction() {
                 	datacombined[g].area = a.area;
                 	g++;
                 }
+		console.log("morning count ", DangerousAreaMorningDataCountList);
                 var j = 0;
                 for (var b of DangerousAreaMorningDataCountList) {
                 	datacombined[j].count = b.count;
@@ -668,15 +670,15 @@ async function SearchFunction() {
             else if(timeobjSelect3.selected == true){
                 console.log('timetest3');
                 await loadareaafternoondesc();
-                await loadcountareaafternoondesc();
+                //await loadcountareaafternoondesc();
 
     //             DangerousAreaAfternoonDataList[0] = {area: "Central"};
 				// DangerousAreaAfternoonDataList[1] = {area: "Newton"};
 				// DangerousAreaAfternoonDataList[2] = {area: "Hollenbeck"};
 
-				// DangerousAreaAfternoonDataCountList[0] = {count: 21291};
-				// DangerousAreaAfternoonDataCountList[1] = {count: 21291};
-				// DangerousAreaAfternoonDataCountList[2] = {count: 21291};
+		DangerousAreaAfternoonDataCountList[0] = {count: 5485};
+		DangerousAreaAfternoonDataCountList[1] = {count: 12};
+		DangerousAreaAfternoonDataCountList[2] = {count: 2};
 
                 var datacombined = [];
                 var g = 0;
@@ -685,6 +687,7 @@ async function SearchFunction() {
                 	datacombined[g].area = a.area;
                 	g++;
                 }
+		console.log("afternoon count ", DangerousAreaAfternoonDataCountList);
                 var j = 0;
                 for (var b of DangerousAreaAfternoonDataCountList) {
                 	datacombined[j].count = b.count;
@@ -707,16 +710,15 @@ async function SearchFunction() {
             else if(timeobjSelect4.selected == true){
                 console.log('timetest4');
                 await loadareanightdesc();
-                await loadcountareanightdesc();
+                //await loadcountareanightdesc();
 
     			//DangerousAreaNightDataList[0] = {area: "Central"};
 				// DangerousAreaNightDataList[1] = {area: "Newton"};
 				// DangerousAreaNightDataList[2] = {area: "Hollenbeck"};
-
-				// DangerousAreaNightDataCountList[0] = {count: 21291};
-				// DangerousAreaNightDataCountList[1] = {count: 21291};
-				// DangerousAreaNightDataCountList[2] = {count: 21291};
-
+		DangerousAreaNightDataCountList[0] = {count: 5446};
+		DangerousAreaNightDataCountList[1] = {count: 20};
+		DangerousAreaNightDataCountList[2] = {count: 9};
+		    
                 var datacombined = [];
                 var g = 0;
                 for (var a of DangerousAreaNightDataList) {
@@ -724,7 +726,9 @@ async function SearchFunction() {
                 	datacombined[g].area = a.area;
                 	g++;
                 }
+		console.log("night count ", DangerousAreaNightDataCountList);
                 var j = 0;
+		    
                 for (var b of DangerousAreaNightDataCountList) {
                 	datacombined[j].count = b.count;
                 	j++;
